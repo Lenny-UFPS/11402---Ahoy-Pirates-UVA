@@ -28,7 +28,7 @@ public class Ahoy {
                 }
             }
         }
-   // mutate the pirates from indexatobto Barbary Pirates. 
+   // mutate the pirates from index a to b to Barbary Pirates. 
         if (x == 'E') {
             for (int i = a; i <= b; i++) {
                 if (arreglo[i] == 1) {
@@ -36,7 +36,7 @@ public class Ahoy {
                 }
             }
         }
-    // mutate the pirates from indexatobto inverse pirates.
+    // mutate the pirates from index a to b to inverse pirates.
         if (x == 'I') {
             for (int i = a; i <= b; i++) {
                 if (arreglo[i] == 0) {
