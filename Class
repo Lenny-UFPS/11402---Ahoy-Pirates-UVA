@@ -1,0 +1,96 @@
+// Pirates problem - A || Nocturna de Entrenamiento UFPS
+
+/**======================#
+ * # Copyright - 2019 ©  #    
+ * #                     #   
+ * #   @author Lenny     #
+ * ======================#
+ */
+import java.util.*;
+
+public class Ahoy {
+    
+    static int [] method(char [] arreglo){
+        int [] nuevo =  new int [arreglo.length];
+        for(int i=0; i<arreglo.length; i++){
+            nuevo[i] = arreglo[i] - 48;
+        }
+        return nuevo;
+    }
+
+    static void Mutate(int [] arreglo, char x, int a, int b) {
+        if (x == 'F') {
+            for (int i = a; i <= b; i++) {
+                if (arreglo[i] == 0) {
+                    arreglo[i] = 1;
+                }
+            }
+        }
+
+        if (x == 'E') {
+            for (int i = a; i <= b; i++) {
+                if (arreglo[i] == 1) {
+                    arreglo[i] = 0;
+                }
+            }
+        }
+
+        if (x == 'I') {
+            for (int i = a; i <= b; i++) {
+                if (arreglo[i] == 0) {
+                    arreglo[i] = 1;
+                } else {
+                    arreglo[i] = 0;
+                }
+            }
+        }
+    }
+    
+    static int Query(int [] arreglo, char x, int a, int b){
+        int contador = 0;
+        if(x == 'S'){
+            for(int i=a; i<=b; i++){
+                if(arreglo[i] == 1){
+                    contador++;
+                }
+            }
+        }
+        return contador;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int contador = 1;
+        while (n-- > 0) {
+            int q = 1;
+            int numPirates = sc.nextInt();
+            char[] arreglo;
+            String sFinal = "";
+            while (numPirates-- > 0) {
+                int nTimes = sc.nextInt();
+                int arg = sc.nextInt();
+                String s = Integer.toString(arg);
+                sFinal += String.join("", Collections.nCopies(nTimes, s));
+            }
+            arreglo = sFinal.toCharArray();
+            int [] nuevo;
+            nuevo = Ahoy.method(arreglo);
+            int query = sc.nextInt();
+            System.out.println("Case "+contador+":");
+            while(query-- > 0){
+                int tmp = 0;
+                char x = sc.next().charAt(0); int a = sc.nextInt(); int b = sc.nextInt();
+                if(x == 'E' || x == 'I' || x == 'F'){
+                    Ahoy.Mutate(nuevo,x,a,b);
+
+                }else{
+                    int QUERY = Ahoy.Query(nuevo, x, a, b);
+                    System.out.println("Q"+q+": "+QUERY);
+                    q++;
+                }
+            }
+            contador++;
+        }
+    }
+}
