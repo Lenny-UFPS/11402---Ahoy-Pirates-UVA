@@ -18,7 +18,9 @@ public class Ahoy {
         return nuevo;
     }
 
+    // Mutator method
     static void Mutate(int [] arreglo, char x, int a, int b) {
+    // mutate the pirates from index a to b to Buccaneer Pirates.
         if (x == 'F') {
             for (int i = a; i <= b; i++) {
                 if (arreglo[i] == 0) {
@@ -26,7 +28,7 @@ public class Ahoy {
                 }
             }
         }
-
+   // mutate the pirates from indexatobto Barbary Pirates. 
         if (x == 'E') {
             for (int i = a; i <= b; i++) {
                 if (arreglo[i] == 1) {
@@ -34,7 +36,7 @@ public class Ahoy {
                 }
             }
         }
-
+    // mutate the pirates from indexatobto inverse pirates.
         if (x == 'I') {
             for (int i = a; i <= b; i++) {
                 if (arreglo[i] == 0) {
@@ -46,6 +48,7 @@ public class Ahoy {
         }
     }
     
+    // \God's query" God is asking a question: how many Buccaneer pirates arethere from index a to b?"
     static int Query(int [] arreglo, char x, int a, int b){
         int contador = 0;
         if(x == 'S'){
